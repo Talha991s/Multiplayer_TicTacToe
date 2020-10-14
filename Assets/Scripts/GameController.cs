@@ -66,6 +66,13 @@ public class GameController : MonoBehaviour
             GameOver();
         }
 
+        ChangeSides();
+
+    }
+
+    void ChangeSides()
+    {
+        playerSide = (playerSide == "X") ? "O" : "X";
     }
 
     void GameOver()
@@ -75,4 +82,6 @@ public class GameController : MonoBehaviour
             buttonList[i].GetComponentInParent<Button>().interactable = false;
         }
     }
+
+  
 }
