@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using System;
 
 [System.Serializable]
 public class Player
 {
+  
     public Image panel;
     public Text text;
 
@@ -28,8 +30,9 @@ public class GameController : MonoBehaviour
     public GameObject restartButton;
     public Player playerX;
     public Player playerO;
-    public PlayerColor inactivePlayerColor;
     public PlayerColor activePlayerColor;
+    public PlayerColor inactivePlayerColor;
+
 
     void Awake()
     {
@@ -100,8 +103,6 @@ public class GameController : MonoBehaviour
             GameOver("draw");
         }
         else { ChangeSides(); }
-
-       
 
     }
 
