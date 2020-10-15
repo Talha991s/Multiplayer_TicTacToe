@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 //using System;
 
 [System.Serializable]
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
     public PlayerColor activePlayerColor;
     public PlayerColor inactivePlayerColor;
     public GameObject startInfo;
+    public GameObject Mmenu;
 
 
     void Awake()
@@ -43,6 +45,7 @@ public class GameController : MonoBehaviour
         GameOverPanel.SetActive(false);
         moveCount = 0;
         restartButton.SetActive(false);
+        Mmenu.SetActive(false);
         //SetPlayerColor(playerX, playerO);
     }
 
@@ -168,7 +171,9 @@ public class GameController : MonoBehaviour
         {
             SetGameOverText(winningPlayer + "  WIN!");
         }
+
         restartButton.SetActive(true);
+        Mmenu.SetActive(true);
 
     }
 
@@ -177,8 +182,11 @@ public class GameController : MonoBehaviour
         GameOverPanel.SetActive(true);
         gameOverText.text =  value;
     }
+    public void mMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 
-  
 
     public void RestartGame()
     {
@@ -187,6 +195,7 @@ public class GameController : MonoBehaviour
         GameOverPanel.SetActive(false);
         SetPlayerButton(true);
         restartButton.SetActive(false);
+        Mmenu.SetActive(false);
         SetPlayerColorInactive();
         startInfo.SetActive(true);
        // SetPlayerColor(playerX, playerO);
